@@ -20,11 +20,13 @@ import UsefulWebsites from "../pages/tools/Resources/UsefulWebsites"
 
 import Stopwatch from "../pages/tools/Stopwatch"
 import Timer from "../pages/tools/Timer"
+import Upcoming from "../pages/Upcoming"
 
 const Content = () => {
   return (
     <Routes>
       <Route index element={<Home />} />
+      <Route path="/" element={<Home />} />
 
       <Route path="stopwatch" element={<Stopwatch />} />
       <Route path="timer" element={<Timer />} />
@@ -46,6 +48,7 @@ const Content = () => {
       <Route path="snippets" element={<Snippets />} />
       <Route path="websites" element={<UsefulWebsites />} />
 
+      <Route path="upcoming" element={<Upcoming />} />
       <Route path="*" element={<NoMatch />} />
     </Routes>
   )

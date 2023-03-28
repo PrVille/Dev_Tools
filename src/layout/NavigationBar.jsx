@@ -5,10 +5,11 @@ import Toolbar from "@mui/material/Toolbar"
 import Typography from "@mui/material/Typography"
 import ConstructionIcon from "@mui/icons-material/Construction"
 import Search from "../components/Search"
+import Button from "@mui/material/Button"
 
 import { Link } from "react-router-dom"
 
-const NavigationBar = ({ drawerWidth, handleDrawerToggle, title, setTitle, setSearch }) => {
+const NavigationBar = ({ drawerWidth, handleDrawerToggle, setSearch }) => {
   return (
     <AppBar
       position="fixed"
@@ -28,30 +29,33 @@ const NavigationBar = ({ drawerWidth, handleDrawerToggle, title, setTitle, setSe
         >
           <MenuIcon />
         </IconButton>
-        
+
         <IconButton
           LinkComponent={Link}
-          onClick={() => {
-            setTitle("Home")
-          }}
           to="/"
           color="inherit"
           edge="start"
           sx={{ mr: 2, display: { md: "none" } }}
         >
-          <ConstructionIcon />
+          <img src="favicon.png" />
         </IconButton>
 
         <Typography
+          component={Link}
+          to="/"
           variant="h6"
           noWrap
-          component="div"
-          sx={{ flexGrow: 1, display: { xs: "none", md: "block" } }}
+          sx={{
+            flexGrow: 1,
+            display: { xs: "none", md: "block" },
+            textDecoration: "none",
+            color: "inherit",
+          }}
         >
-          {title}
+          Dev Tools
         </Typography>
 
-        <Search setSearch={setSearch}/>
+        <Search setSearch={setSearch} />
       </Toolbar>
     </AppBar>
   )

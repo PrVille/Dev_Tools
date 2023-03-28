@@ -38,7 +38,6 @@ const ScrollTop = ({ children }) => {
 
 function App(props) {
   const [mobileOpen, setMobileOpen] = useState(false)
-  const [title, setTitle] = useState("Home")
   const [search, setSearch] = useState("")
 
   const handleDrawerToggle = () => {
@@ -49,8 +48,6 @@ function App(props) {
     <Box sx={{ display: "flex" }}>
       <NavigationBar
         drawerWidth={drawerWidth}
-        title={title}
-        setTitle={setTitle}
         setSearch={setSearch}
         handleDrawerToggle={handleDrawerToggle}
       />
@@ -58,7 +55,6 @@ function App(props) {
       <NavigationDrawer
         drawerWidth={drawerWidth}
         handleDrawerToggle={handleDrawerToggle}
-        setTitle={setTitle}
         search={search}
         mobileOpen={mobileOpen}
       />

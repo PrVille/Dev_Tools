@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { REGEX_HEX_LENGTH_6, REGEX_0_TO_255 } from "../../../constants"
+import { REGEX_HEX_LENGTH_6, REGEX_0_TO_255 } from "../../../data/constants"
 
 import Box from "@mui/material/Box"
 import Card from "@mui/material/Card"

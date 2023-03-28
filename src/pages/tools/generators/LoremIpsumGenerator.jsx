@@ -1,5 +1,6 @@
 import { useMemo, useState } from "react"
-import { REGEX_INTEGER, LOREM_IPSUM, DRAWER_WIDTH } from "../../../constants"
+import { REGEX_INTEGER, DRAWER_WIDTH } from "../../../data/constants"
+import { LOREM_IPSUM } from "../../../data/loremIpsum"
 
 import Card from "@mui/material/Card"
 import CardContent from "@mui/material/CardContent"
@@ -102,7 +103,7 @@ const LoremIpsumGenerator = () => {
           </TextField>
         </CardContent>
 
-        <Divider >
+        <Divider>
           <Typography>
             {selection.charAt(0).toUpperCase() + selection.slice(1) + ":"}{" "}
             {text.length}

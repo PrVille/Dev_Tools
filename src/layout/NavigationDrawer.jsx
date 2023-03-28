@@ -12,17 +12,14 @@ import IconButton from "@mui/material/IconButton"
 import Toolbar from "@mui/material/Toolbar"
 import Chip from "@mui/material/Chip"
 
-import MailIcon from "@mui/icons-material/Mail"
-import ConstructionIcon from "@mui/icons-material/Construction"
-import ArrowRightIcon from "@mui/icons-material/ArrowRight"
 import AvTimerIcon from "@mui/icons-material/AvTimer"
 import AutorenewIcon from "@mui/icons-material/Autorenew"
-import BuildIcon from "@mui/icons-material/Build"
 import BoltIcon from "@mui/icons-material/Bolt"
 import CollectionsBookmarkIcon from "@mui/icons-material/CollectionsBookmark"
 import { Link } from "react-router-dom"
 import { Typography } from "@mui/material"
-import { TOOLS } from "../constants"
+import { TOOLS } from "../data/constants"
+import Footer from "./Footer"
 
 const byName = (a, b) => {
   if (a.name < b.name) {
@@ -34,7 +31,7 @@ const byName = (a, b) => {
   return 0
 }
 
-const SectionList = ({ subheader, items, setTitle, Icon }) => {
+const SectionList = ({ subheader, items, Icon }) => {
   return (
     <List
       dense
@@ -47,13 +44,7 @@ const SectionList = ({ subheader, items, setTitle, Icon }) => {
     >
       {items.map(({ name, href, isNew }) => (
         <ListItem key={name} disablePadding>
-          <ListItemButton
-            component={Link}
-            to={href}
-            onClick={() => {
-              setTitle(name)
-            }}
-          >
+          <ListItemButton component={Link} to={href}>
             {isNew && (
               <ListItemIcon>
                 <Chip label="New" color="primary" size="small" />
@@ -72,25 +63,22 @@ const SectionList = ({ subheader, items, setTitle, Icon }) => {
   )
 }
 
-const DrawerContent = ({ setTitle, search }) => {
+const DrawerContent = ({ search }) => {
   const toolsBySearch = TOOLS.filter((tool) =>
     tool.name.toLowerCase().includes(search)
   )
   const toolsToUse = toolsBySearch.sort(byName)
   return (
-    <div>
-      <Toolbar sx={{ bgcolor: "" }}>
+    <Box sx={{ flexGrow: 1, mb: 4 }}>
+      <Toolbar>
         <IconButton
           LinkComponent={Link}
           to="/"
-          color="primary"
+          color=""
           edge="start"
           sx={{ mr: 2 }}
-          onClick={() => {
-            setTitle("Home")
-          }}
         >
-          <ConstructionIcon />
+          <img src="favicon.png" />
         </IconButton>
         <Typography variant="h6" noWrap component="div" sx={{ flexGrow: 1 }}>
           Dev Tools
@@ -103,37 +91,32 @@ const DrawerContent = ({ setTitle, search }) => {
         subheader="Resources"
         items={toolsToUse.filter((tool) => tool.type === "resource")}
         Icon={CollectionsBookmarkIcon}
-        setTitle={setTitle}
       />
 
       <SectionList
         subheader="Generators"
         items={toolsToUse.filter((tool) => tool.type === "generator")}
         Icon={BoltIcon}
-        setTitle={setTitle}
       />
 
       <SectionList
         subheader="Converters"
         items={toolsToUse.filter((tool) => tool.type === "converter")}
         Icon={AutorenewIcon}
-        setTitle={setTitle}
       />
 
       <SectionList
         subheader="Timer/Stopwatch"
         items={toolsToUse.filter((tool) => tool.type === "time")}
         Icon={AvTimerIcon}
-        setTitle={setTitle}
       />
-    </div>
+    </Box>
   )
 }
 const NavigationDrawer = ({
   drawerWidth,
   mobileOpen,
   handleDrawerToggle,
-  setTitle,
   search,
 }) => {
   return (
@@ -146,21 +129,25 @@ const NavigationDrawer = ({
           keepMounted: true,
         }}
         sx={{
-          display: { xs: "block", md: "none" },
+          display: { xs: "flex", md: "none" },
+          flexDirection: "column",
           "& .MuiDrawer-paper": { boxSizing: "border-box", width: drawerWidth },
         }}
       >
-        <DrawerContent setTitle={setTitle} search={search} />
+        <DrawerContent search={search} />
+        <Footer />
       </Drawer>
       <Drawer
         variant="permanent"
         sx={{
-          display: { xs: "none", md: "block" },
+          display: { xs: "none", md: "flex" },
+          flexDirection: "column",
           "& .MuiDrawer-paper": { boxSizing: "border-box", width: drawerWidth },
         }}
         open
       >
-        <DrawerContent setTitle={setTitle} search={search} />
+        <DrawerContent search={search} />
+        <Footer />
       </Drawer>
     </Box>
   )

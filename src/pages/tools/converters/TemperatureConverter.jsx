@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { REGEX_DECIMAL, REGEX_NO_DOUBLE_DECIMAL } from "../../../constants"
+import { REGEX_DECIMAL, REGEX_NO_DOUBLE_DECIMAL } from "../../../data/constants"
 import Card from "@mui/material/Card"
 import CardContent from "@mui/material/CardContent"
 import TextField from "@mui/material/TextField"
@@ -67,7 +67,7 @@ const TemperatureConverter = () => {
           celsius: (parseFloat(value) / 1.8 - 273.15).toFixed(2),
           fahrenheit: (parseFloat(value) - 459.67).toFixed(2),
           rankine: value,
-          delisle: ((671.67 - parseFloat(value)) * 5 / 6).toFixed(2),
+          delisle: (((671.67 - parseFloat(value)) * 5) / 6).toFixed(2),
           newton: ((parseFloat(value) / 1.8 - 273.15) * 0.33).toFixed(2),
           reaumur: ((parseFloat(value) / 1.8 - 273.15) * 0.8).toFixed(2),
           romer: ((parseFloat(value) / 1.8 - 273.15) * 0.525 + 7.5).toFixed(2),
@@ -79,20 +79,20 @@ const TemperatureConverter = () => {
           fahrenheit: (212 - parseFloat(value) * (6 / 5)).toFixed(2),
           rankine: (671.67 - parseFloat(value) * (6 / 5)).toFixed(2),
           delisle: value,
-          newton: (33 - parseFloat(value) * 11 / 50).toFixed(2),
-          reaumur: (80 - parseFloat(value) * 8 / 15).toFixed(2),
-          romer: (60 - parseFloat(value) * 7 / 20).toFixed(2),
+          newton: (33 - (parseFloat(value) * 11) / 50).toFixed(2),
+          reaumur: (80 - (parseFloat(value) * 8) / 15).toFixed(2),
+          romer: (60 - (parseFloat(value) * 7) / 20).toFixed(2),
         }
       case "n":
         return {
-          kelvin: (parseFloat(value) * 100 / 33 + 273.15).toFixed(2),
-          celsius: (parseFloat(value) * 100 / 33).toFixed(2),
-          fahrenheit: ((parseFloat(value) * 100 / 33) * 1.8 + 32).toFixed(2),
-          rankine: ((parseFloat(value) * 100 / 33) * 1.8 + 491.67).toFixed(2),
+          kelvin: ((parseFloat(value) * 100) / 33 + 273.15).toFixed(2),
+          celsius: ((parseFloat(value) * 100) / 33).toFixed(2),
+          fahrenheit: (((parseFloat(value) * 100) / 33) * 1.8 + 32).toFixed(2),
+          rankine: (((parseFloat(value) * 100) / 33) * 1.8 + 491.67).toFixed(2),
           delisle: ((33 - parseFloat(value)) * (50 / 11)).toFixed(2),
           newton: value,
-          reaumur: ((parseFloat(value) * 100 / 33) * 0.8).toFixed(2),
-          romer: ((parseFloat(value) * 100 / 33) * 0.525 + 7.5).toFixed(2),
+          reaumur: (((parseFloat(value) * 100) / 33) * 0.8).toFixed(2),
+          romer: (((parseFloat(value) * 100) / 33) * 0.525 + 7.5).toFixed(2),
         }
       case "re":
         return {
@@ -101,9 +101,9 @@ const TemperatureConverter = () => {
           fahrenheit: (parseFloat(value) * 2.25 + 32).toFixed(2),
           rankine: (parseFloat(value) * 2.25 + 491.67).toFixed(2),
           delisle: ((80 - parseFloat(value)) * (15 / 8)).toFixed(2),
-          newton: (parseFloat(value) * 33 / 80).toFixed(2),
+          newton: ((parseFloat(value) * 33) / 80).toFixed(2),
           reaumur: value,
-          romer: (parseFloat(value) * 21 / 32 + 7.5).toFixed(2),
+          romer: ((parseFloat(value) * 21) / 32 + 7.5).toFixed(2),
         }
       case "ro":
         return {
@@ -163,7 +163,6 @@ const TemperatureConverter = () => {
     }
 
     if (REGEX_DECIMAL.test(value)) {
-
       const {
         kelvin,
         celsius,

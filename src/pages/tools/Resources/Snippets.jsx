@@ -16,7 +16,7 @@ import { docco } from "react-syntax-highlighter/dist/esm/styles/hljs"
 
 import useNotification from "../../../hooks/useNotification"
 
-import { SNIPPETS } from "../../../constants"
+import { SNIPPETS } from "../../../data/snippets"
 import SearchCard from "../../../components/SearchCard"
 
 const Snippets = () => {

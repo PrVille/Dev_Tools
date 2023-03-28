@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { REGEX_DECIMAL, REGEX_NO_DOUBLE_DECIMAL } from "../../../constants"
+import { REGEX_DECIMAL, REGEX_NO_DOUBLE_DECIMAL } from "../../../data/constants"
 import Card from "@mui/material/Card"
 import CardContent from "@mui/material/CardContent"
 import TextField from "@mui/material/TextField"
@@ -31,11 +31,11 @@ const BitsAndBytesConverter = () => {
   }
   const convertArea = (value, fromUnit, toUnit) => {
     const ratios = {
-      bit: 1/8,
-      kbit: 1/8 * 1000,
-      mbit: 1/8 * 1000000,
-      gbit: 1/8 * 1000000000,
-      tbit: 1/8 * 1000000000000,
+      bit: 1 / 8,
+      kbit: (1 / 8) * 1000,
+      mbit: (1 / 8) * 1000000,
+      gbit: (1 / 8) * 1000000000,
+      tbit: (1 / 8) * 1000000000000,
       byte: 1,
       kbyte: 1000,
       mbyte: 1000000,
@@ -60,8 +60,12 @@ const BitsAndBytesConverter = () => {
       name === "kbit"
         ? setKbit(value)
         : setKbit(convertArea(value, name, "kbit"))
-      name === "tbit" ? setTbit(value) : setTbit(convertArea(value, name, "tbit"))
-      name === "byte" ? setByte(value) : setByte(convertArea(value, name, "byte"))
+      name === "tbit"
+        ? setTbit(value)
+        : setTbit(convertArea(value, name, "tbit"))
+      name === "byte"
+        ? setByte(value)
+        : setByte(convertArea(value, name, "byte"))
       name === "kbyte"
         ? setKbyte(value)
         : setKbyte(convertArea(value, name, "kbyte"))

@@ -5,7 +5,7 @@ import {
   UPPERCASE_LETTERS,
   NUMBERS,
   SYMBOLS,
-} from "../../../constants"
+} from "../../../data/constants"
 
 import Card from "@mui/material/Card"
 import CardContent from "@mui/material/CardContent"
@@ -66,7 +66,7 @@ const calcualateEntropy = (pw) => {
 
 const PasswordGenerator = () => {
   const { notify } = useNotification()
-  const [length, setLength] = useState(12) 
+  const [length, setLength] = useState(12)
   const [allowUppercase, setAllowUppercase] = useState(true)
   const [allowNumbers, setAllowNumbers] = useState(true)
   const [allowSymbols, setAllowSymbols] = useState(false)

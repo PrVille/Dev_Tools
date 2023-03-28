@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { REGEX_DECIMAL, REGEX_NO_DOUBLE_DECIMAL } from "../../../constants"
+import { REGEX_DECIMAL, REGEX_NO_DOUBLE_DECIMAL } from "../../../data/constants"
 import Card from "@mui/material/Card"
 import CardContent from "@mui/material/CardContent"
 import TextField from "@mui/material/TextField"
