@@ -53,7 +53,7 @@ _Live demo https://tools-for-devs.vercel.app/_
     <a href="https://www.linkedin.com/in/ville-prami/">
         <img alt="linkedin" title="LinkedIn" src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"/>
     </a>
-    <a href="https://ville-prami.vercel.app/">
+    <a href="https://villeprami.vercel.app/">
         <img alt="me" title="Me" src="https://img.shields.io/badge/website-000000?style=for-the-badge&logo=About.me&logoColor=white"/>
     </a>
 </p>
